@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>RustDesk</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Remote Access</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Software</th>
+            <th>ID</th>
+            <th>Password</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>RustDesk</th>
+            <td>445612283</td>
+            <td id="rdPassword">Raspberry1</td>
+            <td>
+              <button onclick="openRustDesk()">Open RustDesk</button>
+            </td>
+          </tr>
+          <tr>
+            <th>AnyDesk</th>
+            <td>
+              <a href="anydesk://488586374" onclick="copyPasswordAnyDesk()"
+                >488586374</a
+              >
+            </td>
+            <td id="adPassword">raspberry</td>
+            <td><button onclick="openRustDesk()">Open RustDesk</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script>
+      function copyPasswordAnyDesk() {
+        let password = document.getElementById("adPassword").innerText;
+        navigator.clipboard
+          .writeText(password)
+          .then(() => {
+            alert("Password copied! Just paste it in AnyDesk.");
+          })
+          .catch((err) => {
+            console.error("Failed to copy:", err);
+          });
+      }
+
+      function copyPasswordRustDesk() {
+        let password = document.getElementById("rdPassword").innerText;
+        navigator.clipboard
+          .writeText(password)
+          .then(() => {
+            alert("Password copied! Just paste it in RustDesk.");
+          })
+          .catch((err) => {
+            console.error("Failed to copy:", err);
+          });
+      }
+
+      function openRustDesk() {
+        window.location.href = "rustdesk://445612283?password=Raspberry1";
+      }
+    </script>
+  </body>
+</html>
