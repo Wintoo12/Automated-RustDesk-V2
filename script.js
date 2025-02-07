@@ -5,7 +5,7 @@ function showAlert(message) {
 
   setTimeout(() => {
     alertBox.style.display = "none"; // Hide after 5 seconds
-  }, 5000);
+  }, 3000);
 }
 
 function copyPasswordAnyDesk() {
@@ -16,7 +16,7 @@ function copyPasswordAnyDesk() {
       showAlert("Password copied! Redirecting to AnyDesk...");
       setTimeout(() => {
         window.location.href = "AnyDesk://488586374";
-      }, 3000); // Redirect after 3 seconds
+      }, 1000); // Redirect after a second
     })
     .catch((err) => {
       console.error("Failed to copy:", err);
