@@ -15,7 +15,7 @@ function copyPasswordAnyDesk() {
     .then(() => {
       showAlert("Password copied! Redirecting to AnyDesk...");
       setTimeout(() => {
-        window.location.href = "AnyDesk://488586374?password=a7e8b6929485";
+        window.location.href = "AnyDesk://488586374";
       }, 3000); // Redirect after 3 seconds
     })
     .catch((err) => {
