@@ -1,76 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="style.css" />
-		<title>RustDesk</title>
-	</head>
-	<body>
-		<div class="container">
-			<h1>Remote Access</h1>
-			<table>
-				<thead>
-					<tr>
-						<th>Software</th>
-						<th>ID</th>
-						<th>Password</th>
-						<th>Action</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<th>RustDesk</th>
-						<td>117704810</td>
-						<td id="rdPassword">raspberry1</td>
-						<td>
-							<button onclick="openRustDesk()">Open RustDesk</button>
-						</td>
-					</tr>
-					<tr>
-						<th>AnyDesk</th>
-						<td>488586374</td>
-						<td id="adPassword">a7e8b6929485</td>
-						<td>
-							<button onclick="copyPasswordAnyDesk()">Open AnyDesk</button>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<script>
-			function copyPasswordAnyDesk() {
-				let password = document.getElementById("adPassword").innerText;
-				navigator.clipboard
-					.writeText(password)
-					.then(() => {
-						alert("Password copied! Just paste it in AnyDesk.");
-						window.location.href = "AnyDesk://488586374?password=a7e8b6929485";
-					})
-					.catch((err) => {
-						console.error("Failed to copy:", err);
-					});
-			}
-
-			function copyPasswordRustDesk() {
-				let password = document.getElementById("rdPassword").innerText;
-				navigator.clipboard
-					.writeText(password)
-					.then(() => {
-						alert("Password copied! Just paste it in RustDesk.");
-					})
-					.catch((err) => {
-						console.error("Failed to copy:", err);
-					});
-			}
-
-			function openRustDesk() {
-				window.location.href = "rustdesk://117704810?password=raspberry1";
-			}
-
-			function openAnyDesk() {
-				window.location.href = "AnyDesk://488586374?password=a7e8b6929485";
-			}
-		</script>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>RustDesk</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,300;0,400;0,600;0,700;1,100&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>Remote Access</h1>
+    <div class="container">
+      <table>
+        <thead>
+          <tr>
+            <th>Software</th>
+            <th>ID</th>
+            <th>Password</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>RustDesk</th>
+            <td>117704810</td>
+            <td id="rdPassword">raspberry1</td>
+            <td>
+              <button onclick="openRustDesk()">Open RustDesk</button>
+            </td>
+          </tr>
+          <tr>
+            <th>AnyDesk</th>
+            <td>488586374</td>
+            <td id="adPassword">a7e8b6929485</td>
+            <td>
+              <button onclick="copyPasswordAnyDesk()">Open AnyDesk</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alert">A simple alert message!</div>
+    <script src="script.js"></script>
+  </body>
 </html>
